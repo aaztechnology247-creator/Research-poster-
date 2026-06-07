@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media & Consumer Behavior — Research Comparison Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #f0ece3;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .poster {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #faf7f2;
+    border: 2px solid #c8b89a;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .poster-header {
+    background: #1c2b3a;
+    color: #f0ece3;
+    padding: 40px 50px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .poster-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #d4a843, #b5490a, #7c2d8e, #1a5c8f, #166a4a);
+  }
+  .poster-header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: end;
+  }
+  .poster-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #f0ece3;
+    letter-spacing: -0.5px;
+  }
+  .poster-title span {
+    color: #d4a843;
+  }
+  .poster-subtitle {
+    font-size: 14px;
+    color: #9aafbf;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .paper-count-badge {
+    background: #d4a843;
+    color: #1c2b3a;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  /* THEME STRIP */
+  .theme-strip {
+    display: flex;
+    background: #1a3a2a;
+    padding: 12px 50px;
+    gap: 30px;
+    font-size: 12px;
+    color: #7ec8a0;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .theme-strip span::before {
+    content: '◆ ';
+    color: #d4a843;
+    font-size: 9px;
+  }
+
+  /* BODY */
+  .poster-body {
+    padding: 36px 50px 50px;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #d8cfc0;
+  }
+
+  /* 3-COLUMN GRID */
+  .papers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+
+  .paper-card {
+    border: 1px solid #d8cfc0;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .paper-card-header {
+    padding: 16px 18px 14px;
+    color: #fff;
+    position: relative;
+  }
+  .paper-card:nth-child(1) .paper-card-header { background: #1a5c8f; }
+  .paper-card:nth-child(2) .paper-card-header { background: #166a4a; }
+  .paper-card:nth-child(3) .paper-card-header { background: #6e2a80; }
+
+  .paper-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 6px;
+  }
+  .paper-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .paper-author {
+    font-size: 11px;
+    opacity: 0.8;
+    font-style: italic;
+  }
+  .paper-year-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .paper-card-body {
+    padding: 16px 18px;
+  }
+
+  .field-block {
+    margin-bottom: 14px;
+  }
+  .field-block:last-child { margin-bottom: 0; }
+
+  .field-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+  }
+  .paper-card:nth-child(1) .field-label { color: #1a5c8f; }
+  .paper-card:nth-child(2) .field-label { color: #166a4a; }
+  .paper-card:nth-child(3) .field-label { color: #6e2a80; }
+
+  .field-text {
+    font-size: 12px;
+    line-height: 1.55;
+    color: #333;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 4px;
+  }
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .paper-card:nth-child(1) .tag { background: #e6f1fb; color: #1a5c8f; }
+  .paper-card:nth-child(2) .tag { background: #eaf3de; color: #166a4a; }
+  .paper-card:nth-child(3) .tag { background: #f5eafb; color: #6e2a80; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #d8cfc0;
+    margin: 14px 0;
+  }
+
+  /* COMPARISON TABLE */
+  .comparison-section {
+    margin-bottom: 36px;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .comparison-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #1c2b3a;
+    color: #d4a843;
+    border-right: 1px solid #2e4055;
+  }
+  .comparison-table th:first-child { color: #9aafbf; background: #162230; }
+  .comparison-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8e0d4;
+    border-right: 1px solid #e8e0d4;
+    vertical-align: top;
+    line-height: 1.5;
+    color: #333;
+  }
+  .comparison-table tr:last-child td { border-bottom: none; }
+  .comparison-table td:first-child {
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #666;
+    background: #f7f3ed;
+    white-space: nowrap;
+  }
+  .comparison-table td:nth-child(2) { background: #f0f6fd; }
+  .comparison-table td:nth-child(3) { background: #f0faf5; }
+  .comparison-table td:nth-child(4) { background: #f8f0fd; }
+  .comparison-table tr:hover td { filter: brightness(0.97); }
+
+  /* FINDINGS SECTION */
+  .findings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  .finding-card {
+    padding: 18px;
+    border: 1px solid #d8cfc0;
+    background: #fff;
+    border-radius: 2px;
+  }
+  .finding-card:nth-child(1) { border-top: 3px solid #1a5c8f; }
+  .finding-card:nth-child(2) { border-top: 3px solid #166a4a; }
+  .finding-card:nth-child(3) { border-top: 3px solid #6e2a80; }
+
+  .finding-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .finding-card:nth-child(1) .finding-num { color: #1a5c8f; }
+  .finding-card:nth-child(2) .finding-num { color: #166a4a; }
+  .finding-card:nth-child(3) .finding-num { color: #6e2a80; }
+
+  .finding-list {
+    list-style: none;
+    padding: 0;
+  }
+  .finding-list li {
+    font-size: 12px;
+    line-height: 1.55;
+    color: #333;
+    padding: 5px 0;
+    border-bottom: 1px solid #eeead4;
+    padding-left: 14px;
+    position: relative;
+  }
+  .finding-list li:last-child { border-bottom: none; }
+  .finding-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    font-size: 9px;
+    top: 7px;
+  }
+  .finding-card:nth-child(1) li::before { color: #1a5c8f; }
+  .finding-card:nth-child(2) li::before { color: #166a4a; }
+  .finding-card:nth-child(3) li::before { color: #6e2a80; }
+
+  /* BOTTOM SECTION */
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+
+  .reco-card {
+    background: #fff;
+    border: 1px solid #d8cfc0;
+    border-radius: 2px;
+    padding: 20px;
+  }
+  .reco-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .reco-col-head {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid;
+  }
+  .reco-col-head.p1 { color: #1a5c8f; border-color: #1a5c8f; }
+  .reco-col-head.p2 { color: #166a4a; border-color: #166a4a; }
+  .reco-col-head.p3 { color: #6e2a80; border-color: #6e2a80; }
+  .reco-item {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    position: relative;
+  }
+  .reco-item::before { content: '—'; position: absolute; left: 0; color: #aaa; font-size: 10px; }
+
+  .limitation-card {
+    background: #fff;
+    border: 1px solid #d8cfc0;
+    border-radius: 2px;
+    padding: 20px;
+  }
+  .limitation-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: #444;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
+  }
+  .limitation-item:last-child { border-bottom: none; }
+  .lim-badge {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 2px;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+  .lim-badge.p1 { background: #e6f1fb; color: #1a5c8f; }
+  .lim-badge.p2 { background: #eaf3de; color: #166a4a; }
+  .lim-badge.p3 { background: #f5eafb; color: #6e2a80; }
+
+  /* FOOTER */
+  .poster-footer {
+    background: #1c2b3a;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-note {
+    font-size: 11px;
+    color: #6e8fa5;
+    font-style: italic;
+  }
+  .footer-legend {
+    display: flex;
+    gap: 20px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #9aafbf;
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .poster { max-width: 100%; border: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="poster-header">
+    <div class="poster-header-inner">
+      <div>
+        <div class="poster-title">Social Media &amp; <span>Consumer Behavior</span><br>A Comparative Research Review</div>
+        <div class="poster-subtitle">Marketing &amp; Digital Communications · Three Peer-Reviewed Studies</div>
+      </div>
+      <div class="paper-count-badge">3 Papers Reviewed</div>
+    </div>
+  </div>
+  <div class="theme-strip">
+    <span>Social media marketing</span>
+    <span>Consumer buying behavior</span>
+    <span>Digital influence</span>
+    <span>Attitudinal responses</span>
+    <span>Online purchasing</span>
+  </div>
+
+  <div class="poster-body">
+
+    <!-- PAPER CARDS -->
+    <div class="section-label">Research Papers</div>
+    <div class="papers-grid">
+
+      <!-- PAPER 1 -->
+      <div class="paper-card">
+        <div class="paper-card-header">
+          <div class="paper-num">Paper 01</div>
+          <div class="paper-card-title">Influence of Social Media Marketing Communications on Young Consumers' Attitudes</div>
+          <div class="paper-author">Rodney Graeme Duffett</div>
+          <div class="paper-year-badge">2017 · Young Consumers Journal</div><div style="margin-top:8px"><a href="https://doi.org/10.1108/YC-07-2016-00622" target="_blank" style="color:#b8d9f5;font-size:10.5px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.3);padding:3px 9px;display:inline-block;letter-spacing:0.3px;"><div class="paper-year-badge">2017 · Young Consumers Journal</div>#128279; doi.org/10.1108/YC-07-2016-00622</a></div>
+        </div>
+        <div class="paper-card-body">
+          <div class="field-block">
+            <div class="field-label">Research Problem</div>
+            <div class="field-text">Gap in understanding how social media marketing communications (SMMC) influence cognitive, affective and behavioral attitudes among Generation Z in a developing-country context (South Africa).</div>
+          </div>
+          <hr class="divider">
+          <div class="field-block">
+            <div class="field-label">Objectives</div>
+            <div class="field-text">Examine SMMC influence on each attitude component; assess impact of usage variables (access, frequency, duration) and demographic variables (gender, age, ethnicity) on attitudes.</div>
+          </div>
+          <hr class="divider">
+          <div class="field-block">
+            <div class="field-label">Methodology</div>
+            <div class="field-text">Empirical quantitative survey using three self-administered questionnaires, one per attitude component. Generalized Linear Model (GLM) for analysis via SPSS.</div>
+          </div>
+          <hr class="divider">
+          <div class="field-block">
+            <div class="field-label">Sample / Target</div>
+            <div class="tags">
+              <span class="tag">13,462 respondents</span>
+              <span class="tag">Age 13–18 (Gen Z)</span>
+              <span class="tag">Western Cape, SA</span>
+              <span class="tag">Schools &amp; Colleges</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAPER 2 -->
+      <div class="paper-card">
+        <div class="paper-card-header">
+          <div class="paper-num">Paper 02</div>
+          <div class="paper-card-title">The Influence of Digital Marketing &amp; Social Media Marketing on Consumer Buying Behavior</div>
+          <div class="paper-author">Barbara Antczak</div>
+          <div class="paper-year-badge">2024 · Journal of Modern Science</div><div style="margin-top:8px"><a href="https://www.jomswsge.com/pdf-189429-114019?filename=The+influence+of+digital.pdf" target="_blank" style="color:#b8f5d5;font-size:10.5px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.3);padding:3px 9px;display:inline-block;letter-spacing:0.3px;"><div class="paper-year-badge">2024 · Journal of Modern Science</div>#128279; jomswsge.com — Full PDF</a></div>
+        </div>
+        <div class="paper-card-body">
+          <div class="field-block">
+            <div class="field-label">Research Problem</div>
+            <div class="field-text">How do digital marketing activities (SEO, email, social ads, influencer marketing) and AI-driven personalization shape consumer online purchasing decisions in the contemporary digital age?</div>
+          </div>
+          <hr class="divider">
+          <div class="field-block">
+            <div class="field-label">Objectives</div>
+            <div class="field-text">Explore relationship between digital/social media marketing and online purchasing behavior; examine role of AI tools; investigate how platform-specific features (Facebook, Instagram, Twitter) drive consumer action.</div>
+          </div>
+          <hr class="divider">
+          <div class="field-block">
+            <div class="field-label">Methodology</div>
+            <div class="field-text">Conceptual-analytical literature review synthesizing existing research, industry reports, and statistical data from Statista, BrightLocal, HubSpot, Sprout Social and others.</div>
+          </div>
+          <hr class="divider">
+          <div class="field-block">
+            <div class="field-label">Sample / Target</div>
+            <div class="tags">
+              <span class="tag">Secondary data review</span>
+              <span class="tag">Online consumers</span>
+              <span class="tag">Poland / Global</span>
+              <span class="tag">Age 7–75</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAPER 3 -->
+      <div class="paper-card">
+        <div class="paper-card-header">
+          <div class="paper-num">Paper 03</div>
+          <div class="paper-card-title">Impact of Social Media on Consumer Buying Behavior</div>
+          <div class="paper-author">Sony Varghese &amp; Mansi Agrawal</div>
+          <div class="paper-year-badge">2021 · Saudi J Bus &amp; Mgmt Studies</div><div style="margin-top:8px"><a href="https://doi.org/10.36348/sjbms.2021.v06i03.001" target="_blank" style="color:#ddb8f5;font-size:10.5px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.3);padding:3px 9px;display:inline-block;letter-spacing:0.3px;"><div class="paper-year-badge">2021 · Saudi J Bus &amp; Mgmt Studies</div>#128279; doi.org/10.36348/sjbms.2021.v06i03.001</a></div>
+        </div>
+        <div class="paper-card-body">
+          <div class="field-block">
+            <div class="field-label">Research Problem</div>
+            <div class="field-text">How does social media influence complex consumer buying behavior (high-involvement, infrequent purchases) in urban India, and how does user-generated content alter the decision process?</div>
+          </div>
+          <hr class="divider">
+          <div class="field-block">
+            <div class="field-label">Objectives</div>
+            <div class="field-text">Study social media's impact on the six-stage EBM consumer decision process; measure perceptual change via content engagement; understand how brands can increase customer engagement and brand value.</div>
+          </div>
+          <hr class="divider">
+          <div class="field-block">
+            <div class="field-label">Methodology</div>
+            <div class="field-text">Quantitative primary research using structured questionnaire distributed to active online shoppers, selected via convenient sampling. Analysis using charts and descriptive statistics.</div>
+          </div>
+          <hr class="divider">
+          <div class="field-block">
+            <div class="field-label">Sample / Target</div>
+            <div class="tags">
+              <span class="tag">200 respondents</span>
+              <span class="tag">Urban India</span>
+              <span class="tag">Online shoppers</span>
+              <span class="tag">Multiple age groups</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div class="comparison-section">
+      <div class="section-label">Side-by-Side Comparison</div>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Paper 01 — Duffett (2017)</th>
+            <th>Paper 02 — Antczak (2024)</th>
+            <th>Paper 03 — Varghese &amp; Agrawal (2021)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Focus</td>
+            <td>Attitudinal responses to SMMC in youth</td>
+            <td>Broad digital &amp; social media marketing impact + AI</td>
+            <td>Social media influence on complex buying decisions</td>
+          </tr>
+          <tr>
+            <td>Theoretical Framework</td>
+            <td>Multicomponent attitude model (cognitive, affective, behavioral) + purchase funnel</td>
+            <td>Digital culture theory; WOM; Trust models; AI marketing</td>
+            <td>EBM model — six-phase consumer decision process</td>
+          </tr>
+          <tr>
+            <td>Research Design</td>
+            <td>Empirical quantitative survey (3 questionnaires)</td>
+            <td>Conceptual review + secondary data synthesis</td>
+            <td>Primary quantitative survey (structured questionnaire)</td>
+          </tr>
+          <tr>
+            <td>Geography</td>
+            <td>South Africa (Western Cape)</td>
+            <td>Poland / Global perspective</td>
+            <td>Urban India (Mumbai, Delhi etc.)</td>
+          </tr>
+          <tr>
+            <td>Key Platforms</td>
+            <td>Facebook, Instagram, Twitter, YouTube, WhatsApp</td>
+            <td>Facebook, Instagram, Twitter, e-commerce, email</td>
+            <td>Facebook, Instagram, YouTube, LinkedIn, Pinterest</td>
+          </tr>
+          <tr>
+            <td>Unique Contribution</td>
+            <td>Generational cohort analysis with usage &amp; demographic variables in a developing country</td>
+            <td>Integration of AI, metaverse, and emerging tech into consumer marketing behavior</td>
+            <td>EBM model validated in social media context; impulse buying link to discounts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- KEY FINDINGS -->
+    <div class="section-label">Key Findings</div>
+    <div class="findings-grid">
+
+      <div class="finding-card">
+        <div class="finding-num">Paper 01 · Duffett</div>
+        <ul class="finding-list">
+          <li>SMMC had a positive but declining effect on attitude components — mirroring the purchase funnel (awareness → purchase)</li>
+          <li>Teens who used social media longer and updated profiles more frequently showed the most favorable attitudinal responses</li>
+          <li>Colored and Black population groups showed strongest positive attitudes toward SMMC</li>
+          <li>92.3% of Gen Z accessed social media via mobile devices</li>
+          <li>62.4% logged on daily; attitudes were strongest among those with 5+ years of usage</li>
+          <li>Gender differences existed; females were more prevalent social media users (56.5%)</li>
+        </ul>
+      </div>
+
+      <div class="finding-card">
+        <div class="finding-num">Paper 02 · Antczak</div>
+        <ul class="finding-list">
+          <li>54% of consumers use social media to research products before purchasing (Hootsuite, 2021)</li>
+          <li>91% of consumers aged 18–34 trust online reviews as much as personal recommendations</li>
+          <li>77% of consumers more likely to buy from brands they follow on social media</li>
+          <li>AI-driven personalization (Netflix, Zara, Coca-Cola) significantly boosts engagement and sales</li>
+          <li>Over 80% of consumers conduct online research before purchase; search engines and social media are top sources</li>
+          <li>Influencer marketing: 49% of consumers rely on influencer recommendations for purchasing decisions</li>
+        </ul>
+      </div>
+
+      <div class="finding-card">
+        <div class="finding-num">Paper 03 · Varghese &amp; Agrawal</div>
+        <ul class="finding-list">
+          <li>Instagram (91.5%) and Facebook (91%) were the most used platforms among respondents</li>
+          <li>64.5% said social media provides more information with easier access than traditional media</li>
+          <li>Consumers influenced by social media spend up to 4× more than in normal purchases</li>
+          <li>Discounts and promotions on social media strongly drive unplanned / impulse buying</li>
+          <li>Social media influencers create a positive impact on consumer buying decisions</li>
+          <li>Students are more engaged by ad frequency; salaried class responds more to visual display</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RECOMMENDATIONS + LIMITATIONS -->
+    <div class="bottom-grid">
+
+      <div class="reco-card">
+        <div class="section-label" style="margin-bottom: 0; border-bottom: none;">Recommendations</div>
+        <div class="reco-columns">
+          <div>
+            <div class="reco-col-head p1">Paper 01</div>
+            <div class="reco-item">Adapt SMMC strategies to declining purchase-funnel attitudinal stages</div>
+            <div class="reco-item">Target youth via mobile-first content; consider cultural demographics in South Africa</div>
+            <div class="reco-item">Brands targeting Gen Z must create engaging, creative content to cut through noise</div>
+          </div>
+          <div>
+            <div class="reco-col-head p2">Paper 02</div>
+            <div class="reco-item">Leverage AI for personalization and campaign optimization to boost ROI</div>
+            <div class="reco-item">Maintain strong social media presence to increase website traffic and conversions</div>
+            <div class="reco-item">Invest in trust-building: secure payment, reviews, transparent brand communication</div>
+          </div>
+          <div>
+            <div class="reco-col-head p3">Paper 03</div>
+            <div class="reco-item">Prioritize social media marketing to raise brand visibility and customer loyalty</div>
+            <div class="reco-item">Choose influencers who connect authentically with target consumer needs</div>
+            <div class="reco-item">Use promotions/discounts strategically to trigger unplanned purchases</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="limitation-card">
+        <div class="section-label" style="margin-bottom: 12px; border-bottom: none;">Limitations</div>
+        <div class="limitation-item">
+          <span class="lim-badge p1">P1</span>
+          <span>Social media analyzed collectively, not by individual platform type; only Gen Z cohort studied</span>
+        </div>
+        <div class="limitation-item">
+          <span class="lim-badge p1">P1</span>
+          <span>Limited to Western Cape; findings may not generalize to all of South Africa or other regions</span>
+        </div>
+        <div class="limitation-item">
+          <span class="lim-badge p2">P2</span>
+          <span>Conceptual review lacks primary empirical data; dependent on secondary sources that may vary in reliability</span>
+        </div>
+        <div class="limitation-item">
+          <span class="lim-badge p2">P2</span>
+          <span>Poland-centric statistics may not apply globally; AI discussion largely theoretical</span>
+        </div>
+        <div class="limitation-item">
+          <span class="lim-badge p3">P3</span>
+          <span>Small sample (n=200); convenient sampling limits representativeness across India</span>
+        </div>
+        <div class="limitation-item">
+          <span class="lim-badge p3">P3</span>
+          <span>Focused only on urban consumers; rural and semi-urban behavior excluded from scope</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="poster-footer">
+    <div class="footer-note">© 2026 Reviewed  &amp; Saathurthiya | Aazim    </div>
+    <div class="footer-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#1a5c8f;"></div> Duffett 2017</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#166a4a;"></div> Antczak 2024</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6e2a80;"></div> Varghese &amp; Agrawal 2021</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
